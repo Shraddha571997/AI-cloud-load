@@ -1,4 +1,14 @@
-import axios from "axios"
+import axios from "axios";
+
+// 🔥 FIXED: Direct EC2 backend URL
+const API_BASE_URL = "http://16.170.201.149:5000/api";
+
+const api = axios.create({
+  baseURL: API_BASE_URL,
+  headers: {
+    "Content-Type": "application/json",
+  },
+});
 
 // In production, VITE_API_URL points to the deployed Flask backend.
 // In development, leave it empty so Vite's proxy forwards /api → localhost:5000
