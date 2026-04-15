@@ -1,7 +1,10 @@
 import axios from "axios";
 
 // 🔥 FIXED: Direct EC2 backend URL
-const API_BASE_URL = "http://16.170.201.149:5000/api";
+
+const API_BASE_URL = import.meta.env.VITE_API_URL
+  ? `${import.meta.env.VITE_API_URL}/api`
+  : "/api"
 
 const api = axios.create({
   baseURL: API_BASE_URL,
